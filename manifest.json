@@ -1,0 +1,33 @@
+{
+  "name": "Text highlighter",
+  "version": "1.0",
+  "description": "Build your knowledge and have an impact! — from Gian Segato",
+  "manifest_version": 2,
+  "permissions": ["activeTab", "declarativeContent", "storage", "*://*/*"],
+  "options_page": "options.html",
+  "browser_action": {
+    "default_popup": "popup.html",
+      "default_icon": {
+        "24": "images/active_24.png",
+        "48": "images/active_48.png",
+        "72": "images/active_72.png"
+      }
+  },
+ "icons": {
+        "24": "images/inactive_24.png",
+        "48": "images/inactive_48.png",
+        "72": "images/inactive_72.png"
+    },
+  "background": {
+    "scripts": ["common.js", "background.js"],
+    "persistent": false
+  },
+  "content_scripts": [
+   {
+     "matches": ["*://*/*"],
+     "matches_": ["https://giansegato.com/*"],
+     "css": ["css.css"],
+     "js": ["common.js", "contentScript.js"]
+   }
+ ]
+}
